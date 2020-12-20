@@ -5,6 +5,8 @@ Sparkify offers a music streaming service through desktop and hand-held devices.
 To enable Sparkify to analyse data collected though their music streaming applications, Sparkify wish to establish<br>
 a relational analytical database to gain insight from the songs played by their user-base.
 
+---
+
 ## Datasets
 2No. datasets are available for ingest to the Sparkify analytical database, which are required to carry out relevant<br>
 song play analysis.
@@ -66,17 +68,34 @@ Within Sparkify's file storage, log files are partitioned by the month and year.
     "userId":"53"
     }
 
-## Database Schema
+---
+
+## Database Overview
 The proposed analytical database shall be optimised for song play analysis and shall be structured around a snowflake<br>
 schema design, consisting of a fact and various dimension tables.
 
 ### Table summary
 
-**Name**  | **Description**
----- | -----------
-songplays | **Fact Table**;  
-users | **Dimension Table**;
-songs | **Dimension Table**;
-artists | **Dimension Table**;
-time | **Dimension Table**;
+**Table Name**  | **Description**
+--------------- | ---------------
+**songplays** | Fact Table;  Log data associated with song plays
+**users** | Dimension Table; Registered application users
+**songs** | Dimension Table; Songs in music database
+**artists** | Dimension Table; Artists in music database
+**time** | Dimension Table; Timestamps of **songplays** records, broken down into specific units
 
+### Table Schema and samples
+
+#### Table: **songplays**
+
+Column name | Data Type | Column description
+----------- | --------- | ------------------
+songplay_id  | INT |
+start_time | TIMESTAMP |
+user_id | VARCHAR | NOT NULL
+level | VARCHAR |
+song_id | VARCHAR |
+artist_id | VARCHAR |
+session_id | INT |
+location | VARCHAR |
+user_agent | VARCHAR |
