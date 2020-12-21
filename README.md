@@ -99,3 +99,9 @@ artist_id | VARCHAR |
 session_id | INT |
 location | VARCHAR |
 user_agent | VARCHAR |
+
+Sample **songplays**
+
+songplay_id | start_time | user_id | level | song_id | artist_id | session_id | location | user_agent
+----------- | ---------- | ------- | ----- | ------- | --------- | ---------- | -------- | ----------
+null | 2018-11-01 20:57:10.796000 | 39 | free | null | null | 38 | San Francisco-Oakland-Hayward, CA|"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36"
