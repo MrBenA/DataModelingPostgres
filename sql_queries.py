@@ -54,7 +54,7 @@ artist_table_create = ("""
 
 time_table_create = ("""
     CREATE TABLE IF NOT EXISTS time (
-        start_time TIMESTAMP PRIMARY KEY,
+        start_time TIMESTAMP NOT NULL,
         hour INT NOT NULL,
         day INT NOT NULL,
         week INT NOT NULL,

@@ -38,7 +38,7 @@ def process_log_file(cur, filepath):
     t = pd.to_datetime(nxtsong_df['ts'], unit='ms')
 
     # Create time data dictionary from dataframe and execute table SQL insert statement.
-    time_data = [t, t.dt.hour, t.dt.day, t.dt.week, t.dt.month, t.dt.year, t.dt.weekday]
+    time_data = [t, t.dt.hour, t.dt.day, t.dt.isocalendar().week, t.dt.month, t.dt.year, t.dt.weekday]
     column_labels = ['start_time', 'hour', 'day', 'week', 'month', 'year', 'weekday']
     time_dict = {column_labels[i]: time_data[i] for i in range(len(column_labels))}
     time_df = pd.DataFrame.from_dict(time_dict)
