@@ -84,24 +84,100 @@ schema design, consisting of a fact and various dimension tables.
 **artists** | Dimension Table; Artists in music database
 **time** | Dimension Table; Timestamps of **songplays** records, broken down into specific units
 
-### Table Schema and samples
+## Table Schema and samples
 
-#### Table: **songplays**
+### Table: songplays
 
-Column name | Data Type | Column description
+**Column name** | **Data type** | **Column description**
 ----------- | --------- | ------------------
-songplay_id  | INT |
-start_time | TIMESTAMP |
-user_id | VARCHAR | NOT NULL
-level | VARCHAR |
-song_id | VARCHAR |
-artist_id | VARCHAR |
-session_id | INT |
-location | VARCHAR |
-user_agent | VARCHAR |
+**songplay_id**  | SERIAL | PRIMARY KEY
+**start_time** | TIMESTAMP | NOT NULL
+**user_id** | VARCHAR | NOT NULL
+**level** | VARCHAR | NOT NULL
+**song_id** | VARCHAR |
+**artist_id** | VARCHAR |
+**session_id** | INT | NOT NULL
+**location** | VARCHAR |
+**user_agent** | VARCHAR |
 
-Sample **songplays**
+Sample...
 
-songplay_id | start_time | user_id | level | song_id | artist_id | session_id | location | user_agent
+**songplay_id** | **start_time** | **user_id** | **level** | **song_id** | **artist_id** | **session_id** | **location** | **user_agent**
 ----------- | ---------- | ------- | ----- | ------- | --------- | ---------- | -------- | ----------
-null | 2018-11-01 20:57:10.796000 | 39 | free | null | null | 38 | San Francisco-Oakland-Hayward, CA|"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36"
+5449 | 2018-11-21 21:56:47.796000 | 15 | paid | SOZCTXZ12AB0182364 | AR5KOSW1187FB35FF4 | 818 | Chicago-Naperville-Elgin, IL-IN-WI | "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/36.0.1985.125 Chrome/36.0.1985.125 Safari/537.36"
+
+........................................................................................................................
+
+### Table: users
+
+**Column name** | **Data type** | **Column description**
+----------- | --------- | ------------------
+**user_id**  | INT | PRIMARY KEY, NOT NULL
+**first_name** | VARCHAR | NOT NULL
+**last_name** | VARCHAR | NOT NULL
+**gender** | VARCHAR |
+**level** | VARCHAR |
+
+Sample...
+
+**user_id** | **first_name** | **last_name** | **gender** | **level**
+------- | ---------- | --------- | ------ | -----
+15      | Lily       | Koch      | F      | paid
+
+........................................................................................................................
+
+### Table: songs
+
+**Column name** | **Data type** | **Column description**
+----------- | --------- | ------------------
+**song_id**  | VARCHAR | PRIMARY KEY, NOT NULL
+**title** | VARCHAR | NOT NULL
+**artist_id** | VARCHAR | NOT NULL
+**year** | VARCHAR |
+**duration** | VARCHAR |
+
+Sample...
+
+**song_id** | **title** | **artist_id** | **year** | **duration**
+----------- | -------------- | ------------- | ---------- | ---------
+SOZCTXZ12AB0182364 | Setanta matins | AR5KOSW1187FB35FF4 | 0 | 269.58322
+
+........................................................................................................................
+
+### Table: artists
+
+**Column name** | **Data type** | **Column description**
+--------------- | ------------- | ----------------------
+**artist_id**  | VARCHAR | PRIMARY KEY, NOT NULL
+**name** | VARCHAR | NOT NULL
+**location** | VARCHAR | NOT NULL
+**latitude** | VARCHAR |
+**longitude** | VARCHAR |
+
+Sample...
+
+**artist_id** | **name** | **location** | **latitude** | **longitude**
+------------- | -------- | ------------ | ------------ | -------------
+AR5KOSW1187FB35FF4 | Elena | Dubai UAE | 49.80388 | 15.47491
+
+........................................................................................................................
+
+### Table: time
+
+**Column name** | **Data type** | **Column description**
+--------------- | ------------- | ----------------------
+**start_time**  | VARCHAR | NOT NULL
+**hour** | VARCHAR | NOT NULL
+**day** | VARCHAR | NOT NULL
+**week** | VARCHAR | NOT NULL
+**month** | VARCHAR | NOT NULL
+**year** | VARCHAR | NOT NULL
+**weekday** | VARCHAR | NOT NULL
+
+Sample...
+
+**start_time** | **hour** | **day** | **week** | **month** | **year** | **weekday**
+-------------- | -------- | ------- | -------- | --------- | -------- | -----------
+2018-11-21 21:56:47.796000 | 21 | 21 | 47 | 11 | 2018 | 2
+
+........................................................................................................................
