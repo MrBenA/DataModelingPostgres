@@ -25,8 +25,8 @@ songplay_table_create = ("""
 user_table_create = ("""
     CREATE TABLE IF NOT EXISTS users (
         user_id INT PRIMARY KEY,
-        first_name VARCHAR,
-        last_name VARCHAR,
+        first_name VARCHAR NOT NULL,
+        last_name VARCHAR NOT NULL,
         gender VARCHAR,
         level VARCHAR
     );
@@ -35,7 +35,7 @@ user_table_create = ("""
 song_table_create = ("""
     CREATE TABLE IF NOT EXISTS songs (
         song_id VARCHAR PRIMARY KEY,
-        title VARCHAR,
+        title VARCHAR NOT NULL,
         artist_id VARCHAR,
         year INT,
         duration FLOAT
@@ -44,7 +44,7 @@ song_table_create = ("""
 
 artist_table_create = ("""
     CREATE TABLE IF NOT EXISTS artists (
-        artist_id VARCHAR PRIMARY KEY NOT NULL,
+        artist_id VARCHAR PRIMARY KEY,
         name VARCHAR NOT NULL,
         location VARCHAR,
         latitude VARCHAR,

@@ -143,7 +143,7 @@ Sample...
 
 **Column name** | **Data type** | **Column description**
 ----------- | --------- | ------------------
-**user_id**  | INT | PRIMARY KEY, NOT NULL
+**user_id**  | INT | PRIMARY KEY
 **first_name** | VARCHAR | NOT NULL
 **last_name** | VARCHAR | NOT NULL
 **gender** | VARCHAR |
@@ -161,11 +161,11 @@ Sample...
 
 **Column name** | **Data type** | **Column description**
 ----------- | --------- | ------------------
-**song_id**  | VARCHAR | PRIMARY KEY, NOT NULL
+**song_id**  | VARCHAR | PRIMARY KEY
 **title** | VARCHAR | NOT NULL
-**artist_id** | VARCHAR | NOT NULL
+**artist_id** | VARCHAR |
 **year** | VARCHAR |
-**duration** | VARCHAR |
+**duration** | FLOAT |
 
 Sample...
 
@@ -179,9 +179,9 @@ SOZCTXZ12AB0182364 | Setanta matins | AR5KOSW1187FB35FF4 | 0 | 269.58322
 
 **Column name** | **Data type** | **Column description**
 --------------- | ------------- | ----------------------
-**artist_id**  | VARCHAR | PRIMARY KEY, NOT NULL
+**artist_id**  | VARCHAR | PRIMARY KEY
 **name** | VARCHAR | NOT NULL
-**location** | VARCHAR | NOT NULL
+**location** | VARCHAR |
 **latitude** | VARCHAR |
 **longitude** | VARCHAR |
 
@@ -197,13 +197,13 @@ AR5KOSW1187FB35FF4 | Elena | Dubai UAE | 49.80388 | 15.47491
 
 **Column name** | **Data type** | **Column description**
 --------------- | ------------- | ----------------------
-**start_time**  | VARCHAR | NOT NULL
-**hour** | VARCHAR | NOT NULL
-**day** | VARCHAR | NOT NULL
-**week** | VARCHAR | NOT NULL
-**month** | VARCHAR | NOT NULL
-**year** | VARCHAR | NOT NULL
-**weekday** | VARCHAR | NOT NULL
+**start_time**  | TIMESTAMP | NOT NULL
+**hour** | INT | NOT NULL
+**day** | INT | NOT NULL
+**week** | INT | NOT NULL
+**month** | INT | NOT NULL
+**year** | INT | NOT NULL
+**weekday** | INT | NOT NULL
 
 Sample...
 
