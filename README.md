@@ -1,13 +1,42 @@
 # SparkifyDB
 
-## Overview
+## Project overview
 Sparkify offers a music streaming service through desktop and hand-held devices.<br>
 To enable Sparkify to analyse data collected though their music streaming applications, Sparkify wish to establish<br>
 a relational analytical database to gain insight from the songs played by their user-base.
 
----
+### Repository
 
-## Datasets
+#### To run project...
+- [ *data* ] Directory structure with song and log file data, as JSON format.
+- [ *create_tables.py* ] (Python 3 script): Creates sparkify database and necessary database tables.
+- [ *etl.py* ] (Python 3 script): Main data processing script; Song and log file Extract, Transform and Load functions.
+- [ *sql_queries.py* ] (Python 3 script): Table creation and insert SQL statements used by etl.py
+  
+#### Development / Testing...
+- [ *etl.ipynb* ] (Jupyter notebook): ETL development
+- [ *test.ipynb* ] (Jupyter notebook): Database querying statements after ETL
+
+### Running the project
+(*ensure a local PostgreSQL database server is running and configured with the following default database;<br>
+dbname=studentdb, user=student, password=student*)
+1. Download project data and Python scripts, as listed above, to a local directory.
+2. Open your system CLI and change directory to where the project files are saved.<br>
+   
+        C:\users\username>cd C:\users\username\path\to\project
+   
+3. Run first Python script to create the sparkify database and table schema... *create_tables.py*;<br>
+
+        C:\users\username>cd C:\users\username\path\to\project>python3 create_tables.py
+
+4. Run second python script to process the JSON files and populate database tables... *etl.py*;<br>
+
+        C:\users\username>cd C:\users\username\path\to\project>python3 etl.py 
+
+
+
+---
+## Dataset
 2No. datasets are available for ingest to the Sparkify analytical database, which are required to carry out relevant<br>
 song play analysis.
 

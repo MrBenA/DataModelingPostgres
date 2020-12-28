@@ -18,8 +18,8 @@ def process_song_file(cur, filepath):
     cur.execute(song_table_insert, song_data)
 
     # Create artist data dataframe and execute artist table SQL insert statement.
-    artist_data = df[['artist_id', 'artist_name', 'artist_location', 'artist_latitude', 'artist_longitude']].values[
-        0].tolist()
+    artist_data = df[['artist_id', 'artist_name', 'artist_location',
+                      'artist_latitude', 'artist_longitude']].values[0].tolist()
     cur.execute(artist_table_insert, artist_data)
 
 
@@ -38,7 +38,7 @@ def process_log_file(cur, filepath):
     t = pd.to_datetime(nxtsong_df['ts'], unit='ms')
 
     # Create time data dictionary from dataframe and execute table SQL insert statement.
-    time_data = [t, t.dt.hour, t.dt.day, t.dt.isocalendar().week, t.dt.month, t.dt.year, t.dt.weekday]
+    time_data = [t, t.dt.hour, t.dt.day, t.dt.week, t.dt.month, t.dt.year, t.dt.weekday]
     column_labels = ['start_time', 'hour', 'day', 'week', 'month', 'year', 'weekday']
     time_dict = {column_labels[i]: time_data[i] for i in range(len(column_labels))}
     time_df = pd.DataFrame.from_dict(time_dict)
@@ -77,7 +77,7 @@ def process_data(cur, conn, filepath, func):
     Determines data files for processing, iterates and processes each file.
     """
 
-    # Create list of files matching extension from directory.
+    # Create list of files matching extension from directory walk.
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root, '*.json'))
