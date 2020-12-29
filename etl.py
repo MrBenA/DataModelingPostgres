@@ -14,12 +14,12 @@ def process_song_file(cur, filepath):
     df = pd.read_json(filepath, lines=True)
 
     # Create song data dataframe and execute song table SQL insert statement.
-    song_data = df[['song_id', 'title', 'artist_id', 'year', 'duration']].values[0].tolist()
+    song_data = df[['song_id', 'title', 'artist_id', 'year', 'duration']].values[0]
     cur.execute(song_table_insert, song_data)
 
     # Create artist data dataframe and execute artist table SQL insert statement.
     artist_data = df[['artist_id', 'artist_name', 'artist_location',
-                      'artist_latitude', 'artist_longitude']].values[0].tolist()
+                      'artist_latitude', 'artist_longitude']].values[0]
     cur.execute(artist_table_insert, artist_data)
 
 
@@ -77,7 +77,7 @@ def process_data(cur, conn, filepath, func):
     Determines data files for processing, iterates and processes each file.
     """
 
-    # Create list of files matching extension from directory walk.
+    # Create list of files matching file extension from directory walk.
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root, '*.json'))
