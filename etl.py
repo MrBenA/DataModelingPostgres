@@ -28,8 +28,8 @@ def process_log_file(cur, filepath):
     Extracts song and artist data from JSON files to dataframes and executes table insert statements.
     """
 
-    # Read activity log file to dataframe.
-    df = pd.read_json(filepath, lines=True)
+    # Read activity log file to dataframe. Drop rows with NULL values for 'location' & 'userAgent'.
+    df = pd.read_json(filepath, lines=True).dropna(subset=['location', 'userAgent'])
 
     # Filter dataframe by 'NextSong' action.
     nxtsong_df = df.loc[(df.page == 'NextSong')]
